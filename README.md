@@ -17,8 +17,8 @@ More information about using InContext: [RDF-InContext Wiki](http://github.com//
 
 Demo: [InContext Screencast](http://www.screencast.com/t/uMI07PsVCfm)
 
- * [Live Example 1](http://www.narcis.nl/vpub/RecordID/escape-demo%3Arem%3A2679/)
- * [Live Example 2](http://escape.utwente.nl/graph/demo-1-aggregation#id=demo-1-aggregation)
+ * [Live Example 1 - in NARCIS portal](http://www.narcis.nl/vpub/RecordID/escape-demo%3Arem%3A2679/)
+ * [Live Example 2 - in portal of Twente University ](http://escape.utwente.nl/graph/demo-1-aggregation#id=demo-1-aggregation)
 
  * [Installation instructions](https://github.com/mosart/rdf-InContext/wiki/Installation)
 
