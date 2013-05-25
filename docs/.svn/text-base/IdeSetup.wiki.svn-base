@@ -1,0 +1,59 @@
+#summary Setting up an IDE for further development of the InContext visualiser.
+
+=Introduction=
+
+This page describes how to setup the Eclipse IDE for further development of the InContext visualiser.
+
+It is possible to use any IDE or text editor. The built-in ANT support from Eclipse will allow you to make new release builds easily. If you do not use Eclipse, you will have to install ANT manually or use the ANT support from your preferred IDE instead.
+
+=Installation=
+
+==Install Oracle JDK==
+
+  * Download and install the "Oracle Java Platform Standard Edition JDK": [http://www.oracle.com/technetwork/java/javase/downloads/index.html]
+
+==Install Eclipse IDE==
+
+  * Download the latest "Eclipse IDE for Java EE Developers": [http://www.eclipse.org/downloads/]
+  * To install Eclipse, simply unpack the zip file on your harddrive.
+
+_If you want to use a 64 bit version, both the JDK and Eclipse need to be 64 bit. If you also plan to install Subversion, you'll need to install the 64 bit version of Subversion. A safe choice is to install 32 bits version of all these tools._
+
+==Create an Eclipse workspace==
+
+  * Start Eclipse.
+  * Eclipse will ask for a workspace folder, enter a folder on your harddive, for example: C:\devel\eclipse_workspaces\InContext
+  * This will create a new workspace.
+
+==Install Subclipse==
+
+Subclipse is a Subversion client for Eclipse.
+
+  * In the Help menu in Eclipse, select "Install New Software".
+  * In the field "Work with:", enter "http://subclipse.tigris.org/update_1.6.x" and click "Add".
+  * A list of packages will appear, select "Subclipse" and "Optional JNA Library" if you have Subversion installed on your PC or "Core SVNKit Library" if you don't have Subversion installed on your PC.
+  * Choose "Next >", "Next >", accept the license terms and click "Finish".
+
+_If you choose for SVNKit, go to the Window menu, select Preferences.
+Select Team > SVN, here set "SVN interface:" to "SVNKit (Pure Java)"._
+
+==Import InContext from Google Code==
+
+  * In the File menu select Import
+  * Choose SVN > Checkout Projects from SVN
+  * Create a new repository location
+  * Set the Location Url:
+    * For read only access use: http://surf-incontext.googlecode.com/svn/
+    * For read/write access use: https://surf-incontext.googlecode.com/svn/ (only needed if you want to contribute changes back to the project, contact us for more information)
+  * Select "trunk"
+  * Select "Check out as a project in the workspace"
+  * Set "Project Name" to "InContext"
+  * Select Finish
+
+==Building the release version==
+
+To build a release version, right mouse click on the build.xml file in the root of your project. Here select Run As > Ant Build. This will create a Release directory in your project containing the release version of InContext.
+
+To update the release directory in Eclipse, right mouse click the project icon and select 'Refresh'.
+
+For more information see [Development].

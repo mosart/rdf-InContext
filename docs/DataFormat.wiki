@@ -1,0 +1,124 @@
+#summary Data format description.
+
+= Introduction =
+
+This page describes the data format used by the visualizer.
+
+See [SchemaFormat Schema Format] for more information about the schema format.
+
+= Data Format =
+
+The visualiser needs data to visualise. This data needs to be provided in RDF format. The visualiser uses the OAI-ORE object model.
+
+== RDF ==
+
+The Resource Description Framework (RDF) is a language for representing information about resources in the World Wide Web.
+
+RDF is based on the idea of identifying things using Web identifiers (called Uniform Resource Identifiers, or URIs), and describing resources in terms of simple properties and property values. This enables RDF to represent simple statements about resources as a graph of nodes and arcs representing the resources, and their properties and values.
+
+For example:
+|| http://myuni.tld/repo/123 || http://www.w3.org/1999/02/22-rdf-syntax-ns#type || http://xmlns.com/foaf/0.1/Document ||
+|| http://myuni.tld/repo/123 || http://xmlns.com/foaf/0.1/name || "My publication" ||
+|| http://myuni.tld/repo/123 || http://xmlns.com/foaf/0.1/maker || http://myuni.tld/people/456 ||
+|| http://myuni.tld/people/456 || http://www.w3.org/1999/02/22-rdf-syntax-ns#type || http://xmlns.com/foaf/0.1/Person ||
+|| http://myuni.tld/people/456 || http://xmlns.com/foaf/0.1/name || "Peter Pan" ||
+
+These RDF statements describe two objects, a document and a person. The document refers to the person.
+
+RDF can be represented in many formats. One of the most common formats is RDF/XML. For example, the same RDF statements mentioned represented in RDF/XML:
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  
+  <rdf:Description rdf:about="http://myuni.tld/repo/123">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document" />
+    <foaf:name>My publication</foaf:name>
+    <foaf:maker rdf:resource="http://myuni.tld/people/456" />
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://myuni.tld/people/456">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person" />
+    <foaf:name>Peter Pan</foaf:name>
+  </rdf:Description>
+  
+</rdf:RDF>
+}}}
+
+Another format is RDF/JSON (see also: [http://n2.talis.com/wiki/RDF_JSON_Specification RDF/JSON specification]):
+{{{
+{
+  "http://myuni.tld/repo/123" : {
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [
+      { "value" : "http:\/\/xmlns.com\/foaf\/0.1\/Document", "type" : "uri" }
+    ],
+    "http://xmlns.com/foaf/0.1/name" : [
+      { "value" : "My publication", "type" : "literal" }
+    ],
+    "http://xmlns.com/foaf/0.1/maker" : [
+      { "value" : "http:\/\/myuni.tld\/people\/456", "type" : "uri" }
+    ]
+  },
+
+  "http://myuni.tld/people/456" : {
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [
+      { "value" : "http:\/\/xmlns.com\/foaf\/0.1\/Person", "type" : "uri" }
+    ],
+    "http://xmlns.com/foaf/0.1/name" : [
+      { "value" : "Peter Pan", "type" : "literal" }
+    ]
+  } 
+}
+}}}
+
+  * [http://www.w3.org/TR/rdf-primer/ RDF Primer]
+
+The visualiser supports both RDF/XML and RDF/JSON. JSON, being a native format for JavaScript, provides better performance. You can convert between different formats using the [http://convert.test.talis.com/ RDF format converter].
+
+While it is possible to generate RDF using any text / XML tool, it is recommended to use a RDF library, for example:
+
+Java:
+  * http://jrdf.sourceforge.net/
+  * http://jena.sourceforge.net/
+  * http://www.openrdf.org/about.jsp
+
+PHP:
+  * http://arc.semsol.org/
+
+Perl:
+  * http://www.perlrdf.org/
+
+== OAI-ORE ==
+
+Open Archives Initiative Object Reuse and Exchange (OAI-ORE) defines standards for the description and exchange of aggregations of Web resources.
+
+In order to be able to unambiguously refer to an aggregation of Web resources, a resource named an Aggregation is introduced that stands for a set or collection of other Resources.
+
+In addition a resource named a Resource Map is introduced to represent the serialization of the aggregation in a specific format.
+
+Please read [http://wiki.surffoundation.nl/display/vp/Resource+Maps+in+RDF+XML Resource Maps in RDF/XML] for more information about creating an OAI-ORE resource map.
+
+For more information about OAI-ORE see: [http://www.openarchives.org/ore/1.0/primer.html OAI ORE primer].
+
+== Required properties ==
+
+Every resource in the aggregation must have a RDF type. Multiple RDF types are not supported in the current version, only the first RDF type statement will be used.
+
+Any property can be used to describe information about the resources and the relations between them. See [SchemaFormat Schema Format].
+
+== Putting things together ==
+
+If your system does not already expose OAI-ORE resource maps in RDF format, you will need to generate these yourself.
+
+First, you'll need to plan which objects in your system you want to visualise and how these objects relate to each other.
+
+Next, you will need to decide which ontologies / schemas you want to use to represent this data. For more information see: [SchemaFormat Schema Format].
+
+Finally, you need to fetch all the data from your system, perhaps using SQL queries, system API calls or XSLT crosswalks and format it into the OAI-ORE format.
+
+The [http://www.w3.org/RDF/Validator/ RDF Validator / Visualizer] can be used to verify if your data is valid RDF and to see if it expresses the desired RDF statements.
+
+== Relation annotations ==
+
+The visualiser also allows you to annotate relations between resources, for more information see [RelationAnnotations Relation Annotations].

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/53/tags/release-1.1/Source
+END
+example_release.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/53/tags/release-1.1/Source/example_release.html
+END
+example_source.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/53/tags/release-1.1/Source/example_source.html
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/53/tags/release-1.1/Source/COPYING
+END

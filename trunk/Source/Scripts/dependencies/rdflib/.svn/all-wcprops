@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/56/trunk/Source/Scripts/dependencies/rdflib
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/LICENSE
+END
+web.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/web.js
+END
+rdfparser.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/rdfparser.js
+END
+sparqlUpdate.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/sparqlUpdate.js
+END
+rdflib.js
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/56/trunk/Source/Scripts/dependencies/rdflib/rdflib.js
+END
+rdfa.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/rdfa.js
+END
+term.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/term.js
+END
+uri.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/uri.js
+END
+sparql.js
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/sparql.js
+END
+query.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/query.js
+END
+jsonparser.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/jsonparser.js
+END
+match.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/match.js
+END
+n3parser.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/n3parser.js
+END
+util.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/56/trunk/Source/Scripts/dependencies/rdflib/util.js
+END
+serialize.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/serialize.js
+END
+rdfs.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/rdfs.js
+END
+identity.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/41/trunk/Source/Scripts/dependencies/rdflib/identity.js
+END

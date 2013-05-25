@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/55/trunk/Source/Scripts/modules
+END
+htmldrawservice.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/55/trunk/Source/Scripts/modules/htmldrawservice.js
+END
+schemaservice.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/43/trunk/Source/Scripts/modules/schemaservice.js
+END
+navigationservice.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/51/trunk/Source/Scripts/modules/navigationservice.js
+END
+animationservice.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/41/trunk/Source/Scripts/modules/animationservice.js
+END
+cloudservice.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/41/trunk/Source/Scripts/modules/cloudservice.js
+END
+schemaconnector.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/41/trunk/Source/Scripts/modules/schemaconnector.js
+END
+dataservice.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/49/trunk/Source/Scripts/modules/dataservice.js
+END
+historymanager.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/51/trunk/Source/Scripts/modules/historymanager.js
+END
+syncdataconnector.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/41/trunk/Source/Scripts/modules/syncdataconnector.js
+END

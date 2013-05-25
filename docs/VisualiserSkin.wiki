@@ -1,0 +1,17 @@
+#summary Visualiser skin description.
+
+= Introduction =
+
+This page describes how to customize the look and feel of the visualiser.
+
+= Using custom colors and icons =
+
+== Changing colors ==
+
+All font and color related styles are defined in the “visualize-skin.css” file. If needed, you can edit this file to change the font or colors used in the visualizer.
+
+== Replacing icons/images ==
+
+Provided with the source is a folder with original photoshop (.psd) files containing all images that could need skinning. Edit them and save them to the content folder as .png to add icons/change colors etc.
+
+TODO: add more information about the icon sprite system?

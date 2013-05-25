@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * File: build.xml
+ * 
+ * Copyright 2011  SURFfoundation
+ * 
+ * This file is part of InContext.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ * For more information: http://code.google.com/p/surf-incontext/
+-->
+<project name="InContext" basedir="." default="default">
+	<target name="default" description="Build InContext release version">
+		<!-- setup the class path for YUI compressor -->
+		<property 
+			name="yui-compressor.jar" 
+			location="Lib/yuicompressor-2.4.2.jar" />
+		<property 
+			name="yui-compressor-ant-task.jar" 
+			location="Lib/yui-compressor-ant-task-0.5.jar" />
+
+		<path id="task.classpath">
+			<pathelement location="${yui-compressor.jar}" />
+			<pathelement location="${yui-compressor-ant-task.jar}" />
+		</path>
+
+		<!-- define the yui-compressor ANT task -->
+		<taskdef 
+			name="yui-compressor" 
+			classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask">
+			<classpath refid="task.classpath"/>
+		</taskdef>
+
+		<!-- delete the release directory -->
+		<delete dir="Release"/>
+
+		<!-- create the release directory -->
+		<mkdir dir="Release"/>
+		<mkdir dir="Release/Scripts"/>
+
+		<!-- copy all content from the source directory to release directory, except for the script sources -->
+		<copy todir="Release">
+			<fileset dir="Source">
+				<exclude name="Scripts/**"/>
+				<exclude name="example_source.html"/>
+			</fileset>
+		</copy>
+
+		<!-- concatenate all required script files to a single file -->
+		<concat encoding="UTF-8" outputencoding="UTF-8" destfile="Release/Scripts/visualizer_compiled.js">
+			<!-- required script files -->
+			<filelist dir="Source/Scripts">
+				<file name="dependencies/jquery-1.4.4.js"/>
+				<file name="dependencies/jquery.address-1.3.1.min.js"/>
+				<file name="dependencies/jquery.effects.core.js"/>
+				<file name="dependencies/rdflib/LICENSE"/>
+				<file name="dependencies/rdflib/util.js"/>
+				<file name="dependencies/rdflib/uri.js"/>
+				<file name="dependencies/rdflib/term.js"/>
+				<file name="dependencies/rdflib/rdfparser.js"/>
+				<file name="dependencies/rdflib/identity.js"/>
+				<file name="visualizer.js"/>
+				<file name="utils/htmlpopup.js"/>
+				<file name="utils/rdfxmlparser.js"/>
+				<file name="framework/core.js"/>
+				<file name="framework/sandbox.js"/>
+				<file name="modules/syncdataconnector.js"/>
+				<file name="modules/schemaconnector.js"/>
+				<file name="modules/dataservice.js"/>
+				<file name="modules/schemaservice.js"/>
+				<file name="modules/htmldrawservice.js"/>
+				<file name="modules/historymanager.js"/>
+				<file name="modules/cloudservice.js"/>
+				<file name="modules/navigationservice.js"/>
+				<file name="modules/animationservice.js"/>
+				<file name="domain/node.js"/>
+			</filelist>
+			<!-- get rid of UTF-8 BOM characters -->
+			<filterchain>
+				<deletecharacters chars="&#xFEFF;"/>
+			</filterchain>
+			<!-- use a sandbox wrapper to hide all libraries from the outside world -->
+<header>/*!
+ * SURF InContext RDF visualizer
+ * 
+ * Copyright 2011  SURFfoundation
+ * Licensed under the GPL version 3 license.
+ * See below for the license statements of included dependencies.
+ *
+ * For more information see: http://code.google.com/p/surf-incontext/
+ * 
+ * Build date: @buildDate@
+ */
+
+(function() {
+
+</header>
+<footer>
+
+jQuery.noConflict(true); })();
+
+</footer>
+		</concat>
+
+		<!-- add a build date -->
+		<tstamp>
+			<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
+		</tstamp>
+		<propertyfile
+			file="Release/Scripts/version.properties" comment="Build version info">
+			<entry key="buildDate" type="string" value="${TODAY}"/>
+		</propertyfile>
+		<replace
+			file="Release/Scripts/visualizer_compiled.js"
+			propertyFile="Release/Scripts/version.properties">
+			<replacefilter
+				token="@buildDate@"
+				property="buildDate"/>
+		</replace>
+		<delete file="Release/Scripts/version.properties"/>
+		
+		<!-- compress the script file using YUI compressor -->
+		<yui-compressor warn="false" munge="true" jsSuffix="_min.js" cssSuffix="_min.css" preserveAllSemiColons="false" fromDir="Release/Scripts" toDir="Release/Scripts">
+			<include name="visualizer_compiled.js" />
+		</yui-compressor>
+		
+		<echo message="To update the release folder in your IDE, right mouse click the project icon and select 'Refresh'."/>
+	</target>
+</project>

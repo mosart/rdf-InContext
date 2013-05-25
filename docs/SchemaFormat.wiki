@@ -1,0 +1,130 @@
+#summary Schema format description.
+
+= Introduction =
+
+This page describes the schema format used by the visualizer.
+
+See [DataFormat Data Format] for more information about the data format.
+
+= Schema format =
+
+The data contains information about the objects which you want to visualise. The schema contains information about the data model.
+
+For example, if the data contains a statement `<object> <foaf:mbox> "foo@bar.tld"`. The visualiser will use the schema to look up information about foaf:mbox, such as the label which should be used in the user interface.
+
+The Example schema provided in the InContext release contains many common ontologies such as Dublin Core and FOAF. You can also write your own schema to match the data used by your system.
+
+The visualiser uses RDF Schema and the OWL Web Ontology Language for it's schema definitions.
+
+The schema can be formatted in RDF/XML or RDF/JSON. JSON, being a native format for JavaScript, provides better performance. You can convert between different formats using the [http://convert.test.talis.com/ RDF format converter]. The examples in this page use RDF/XML.
+
+== RDF Schema support ==
+
+InContext supports the following features of RDF Schema:
+  * rdfs:Resource
+  * rdfs:Description
+  * rdfs:Class
+  * rdfs:Property
+  * rdfs:type
+  * rdfs:subClassOf
+  * rdfs:label
+
+For more information about RDF Schema, see: [http://www.w3.org/TR/rdf-schema/ RDF Schema].
+
+== OWL Web Ontology Language support ==
+
+InContext supports the following features of the OWL Web Ontology Language:
+  * owl:inverseOf
+  * owl:SymmetricProperty
+
+For more information about OWL, see: [http://www.w3.org/TR/owl-ref/ OWL Web Ontology Language].
+
+== Schema basics ==
+
+Schema files need to be valid RDF/XML documents, for example:
+{{{
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    ... schema content ...
+
+</rdf:RDF>
+}}}
+
+The schema defines two types of concepts: classes and properties.
+
+== Classes ==
+
+Classes are types of objects, for example: a document, person, project, etc.
+
+To define a class:
+{{{
+<owl:Class rdf:about="http://myontology/#MyClass">
+    <rdfs:label>My class</rdfs:label>
+</owl:Class>
+}}}
+The rdfs:label property is used to show the class name in the visualiser.
+
+InContext supports class hierarchies using the rdfs:subClassOf property:
+{{{
+<owl:Class rdf:about="http://myontology/#MyClass">
+    <rdfs:label>My class</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="http://myontology/#MySubClass">
+    <rdfs:label>My sub class</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://myontology/#MyClass"/>
+</owl:Class>
+}}}
+
+Grouping and icons in the visualiser are decided based on the baseClassTypes configuration option. For more information see: [ConfigurationOptions#baseClassTypes baseClassTypes].
+
+== Properties ==
+
+Properties describe objects, for example: title, name, date, made, etc.
+
+Properties can be divided in two kinds of properties: object properties which relate one object to another and data type properties which describe an object using literals.
+
+To define a data type property:
+{{{
+<owl:DatatypeProperty rdf:about="http://myontology/#startDate">
+    <rdfs:label>Start date</rdfs:label>
+</owl:DatatypeProperty>
+}}}
+
+To define on object property:
+{{{
+<owl:ObjectProperty rdf:about="http://myontology/#made">
+    <rdfs:label>Made</rdfs:label>
+    <owl:inverseOf rdf:resource="http://myontology/#madeBy"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://myontology/#madeBy">
+    <rdfs:label>Made</rdfs:label>
+    <owl:inverseOf rdf:resource="http://myontology/#made"/>
+</owl:ObjectProperty>
+}}}
+
+When showing object relations, InContext shows both relations from an object to another object and relations from other objects to an object. In order to display relations from other objects to an object, InContext needs to know the owl:inverseOf for a relation. Any object properties should specify an owl:inverseOf relation.
+
+Symmetric properties define relationships which are valid in two directions. For example, if "A is a sibiling of B" then it follows thats "B is a sibiling of A". Symmetric properties can be specified using owl:SymmetricProperty:
+{{{
+<owl:SymmetricPropertyrdf:about="http://myontology/#sibilingOf">
+    <rdfs:label>Sibiling of</rdfs:label>
+</owl:SymmetricProperty>
+}}}
+In this case no owl:inverseOf property needs to be specified.
+
+== Titles ==
+
+For every resource, the visualiser needs to know which property to use as the title of the resource. Different types of resources can use different properties to represent the title.
+
+The visualiser uses a simple list of property identifiers to decide the title. For each resource, it tests if any of the properties in this list is available. The visualiser will use the first match as the resource title. This behavior is configured through the configuration option [ConfigurationOptions#titleProperties titleProperties].
+
+== Relation annotations ==
+
+The visualiser also allows you to annotate relations between resources, for more information see [RelationAnnotations Relation Annotations].

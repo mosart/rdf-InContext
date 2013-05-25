@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/53/tags/release-1.1/Source/Example
+END
+example_schema.json
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/53/tags/release-1.1/Source/Example/example_schema.json
+END
+example_data.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/53/tags/release-1.1/Source/Example/example_data.rdf
+END
+example_schema.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/53/tags/release-1.1/Source/Example/example_schema.rdf
+END

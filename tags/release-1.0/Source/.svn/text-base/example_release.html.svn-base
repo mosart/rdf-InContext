@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ * File: example_release.xml
+ * 
+ * Copyright 2011  SURFfoundation
+ * 
+ * This file is part of InContext.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ * For more information: http://code.google.com/p/surf-incontext/
+-->
+<html>
+<head>
+	<title>InContext Example</title>
+	
+	<!-- Visualizer CSS files -->
+	<link type="text/css" href="Content/visualizer.css" media="screen" rel="Stylesheet" /> 
+	<link type="text/css" href="Content/visualizer-skin.css" media="screen" rel="Stylesheet" /> 
+	
+	<!-- Add transparent PNG support to IE6 -->
+	<!-- Visualizer IE6 CSS file -->
+	<!--[if IE 6]>
+		<script type="text/javascript" src="Content/iepngfix_tilebg.js"></script>
+		<link type="text/css" href="Content/visualizer-ie6.css" rel="Stylesheet" />	
+	<![endif]-->
+
+	<!-- Visualizer release version script include file -->
+	<script type="text/javascript" src="Scripts/visualizer_compiled_min.js"></script>
+
+	<!-- Visualizer example code -->
+	<script type="text/javascript">
+		// initialize the visualizer, center the visualizer on an object identified by "http://pof.tnw.utwente.nl/" 
+		var app = new VisualizerApp("visualizer_canvas", "http://pof.tnw.utwente.nl/",
+			{ // configuration options, see the configuration options documentation page for more information
+				debug: true,
+				dataUrl: "Example/example_data.rdf",
+				schemaUrl: "Example/example_schema.json",
+				schemaFormat: "application/json",
+				titleProperties: ["http://purl.org/dc/terms/title", "http://xmlns.com/foaf/0.1/name"],
+				dontShowProperties: ["http://purl.utwente.nl/ns/escape-system.owl#id", "http://purl.utwente.nl/ns/escape-system.owl#resourceUri"],
+				annotationTypeId: "http://purl.utwente.nl/ns/escape-annotations.owl#RelationAnnotation",
+				objectAnnotationTypeId: "http://purl.utwente.nl/ns/escape-annotations.owl#object",
+				subjectAnnotationTypeId: "http://purl.utwente.nl/ns/escape-annotations.owl#subject",
+				descriptionAnnotationTypeId: "http://purl.org/dc/terms/description",
+				imageTypeId: "http://xmlns.com/foaf/0.1/img",
+				useHistoryManager: true,
+				baseClassTypes: {
+					"http://purl.utwente.nl/ns/escape-pubtypes.owl#Publication": "publication",
+					"http://purl.org/dc/dcmitype/MovingImage": "video",
+					"http://purl.utwente.nl/ns/escape-events.owl#Event": "event",
+					"http://purl.utwente.nl/ns/escape-projects.owl#Topic": "topic"
+			}
+		});
+
+		// subscribe to event that listens for object load
+		app.subscribe("*.load-object", function (event) {
+			document.getElementById('showObjectHolder').innerHTML = event.data;
+		});
+
+		// subscribe to event that listens for uri clicks
+		app.subscribe("*.uri-click", function (event) {
+			document.getElementById('uriClickDiv').innerHTML = "uri-click - " + event.data;
+		});
+		
+		// subscribe to event that listens for object uri clicks
+		app.subscribe("*.object-uri-click", function (event) {
+			document.getElementById('uriClickDiv').innerHTML = "object-uri-click - Id: " + event.data.id + " - ExternalId: " + event.data.externalId;
+		});
+	</script>
+</head>
+<body>
+
+	<!-- Example button to demonstrate events coming from outside of the visualizer -->
+	<button onclick="app.loadObject('http://dx.doi.org/10.1126/science.289.5487.2114')">External Call Load Demo</button>
+	<!-- Example place holders to display information coming from visualizer events -->
+	Current object: <span id="showObjectHolder"></span>
+	<div id="uriClickDiv"></div>
+	<hr />
+
+	<!-- The location where the visualizer will be drawn -->
+	<div id="visualizer_canvas"></div>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:ore="http://www.openarchives.org/ore/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:escape-system="http://purl.utwente.nl/ns/escape-system.owl#"
+  xmlns:swrc="http://swrc.ontoware.org/ontology#"
+  xmlns:escape-projects="http://purl.utwente.nl/ns/escape-projects.owl#"
+  xmlns:swan="http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/"
+  xmlns:escape-annotations="http://purl.utwente.nl/ns/escape-annotations.owl#">
+
+  <rdf:Description rdf:about="http://escape.utwente.nl/rem/demo-1-aggregation">
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+    <dcterms:created>2010-10-15T13:26:50.216Z</dcterms:created>
+    <dcterms:modified>2010-10-15T13:27:05.944Z</dcterms:modified>
+    <ore:describes rdf:resource="http://escape.utwente.nl/aggregation/demo-1-aggregation"/>
+    <dcterms:creator rdf:nodeID="513e4609"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="513e4609">
+    <foaf:name>ESCAPE repository</foaf:name>
+    <foaf:page rdf:resource="http://escape.utwente.nl/"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://escape.utwente.nl/aggregation/demo-1-aggregation">
+    <rdf:type rdf:resource="http://purl.org/info:eu-repo/semantics/EnhancedPublication"/>
+    <escape-system:id>demo-1-aggregation</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/aggregation/demo-1-aggregation"/>
+    <dcterms:created>2010-10-15T13:26:50.216Z</dcterms:created>
+    <dcterms:modified>2010-10-15T13:27:05.944Z</dcterms:modified>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Brandaris 128 (DEMO AGGREGATION)</dcterms:title>
+    <dcterms:creator>Michel Versluis</dcterms:creator>
+    <ore:aggregates rdf:resource="http://www.erasmusmc.nl/thoraxcenterbme/People-in-the-department/principalinvest/1064136/"/>
+    <ore:aggregates rdf:resource="http://www.onderzoekinformatie.nl/en/oi/nod/onderzoeker/PRS1305053/"/>
+    <ore:aggregates rdf:resource="http://www.utwente.nl/"/>
+    <ore:aggregates rdf:resource="http://www.erasmusmc.nl/"/>
+    <ore:aggregates rdf:resource="http://www.fom.nl/"/>
+    <ore:aggregates rdf:resource="http://www.cordin.com/"/>
+    <ore:aggregates rdf:resource="http://www.brandaris128.nl/"/>
+    <ore:aggregates rdf:resource="http://pof.tnw.utwente.nl/"/>
+    <ore:aggregates rdf:resource="http://www.erasmusmc.nl/ThoraxcenterBME/"/>
+    <ore:aggregates rdf:resource="http://dx.doi.org/10.1016/j.jconrel.2006.02.007"/>
+    <ore:aggregates rdf:resource="http://www.erasmusmc.nl/directie_informatie/research-di/?lang=nl"/>
+    <ore:aggregates rdf:resource="http://stilton.tnw.utwente.nl/people/michel/"/>
+    <ore:aggregates rdf:resource="http://pof.tnw.utwente.nl/2_people/personalpages/detlef/CV_Professor%20Dr%20Detlef%20Lohse_170409.htm"/>
+    <ore:aggregates rdf:resource="http://stilton.tnw.utwente.nl/shrimp/research.html#BarbaraSchmitz"/>
+    <ore:aggregates rdf:resource="http://www.phys.uu.nl/~heydt/home/Welcome.html"/>
+    <ore:aggregates rdf:resource="http://dx.doi.org/10.1126/science.289.5487.2114"/>
+    <ore:aggregates rdf:resource="http://www.youtube.com/watch?v=eKPrGxB1Kzc"/>
+    <ore:aggregates rdf:resource="http://escape.utwente.nl/resource/demo-1-relationannotation1"/>
+    <ore:aggregates rdf:resource="http://pof.tnw.utwente.nl/3_research/files/gallery.mpg"/>
+    <ore:aggregates rdf:resource="http://escape.utwente.nl/resource/demo-1-relationannotation2"/>
+    <dcterms:description>This is a demo aggregation.</dcterms:description>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.erasmusmc.nl/thoraxcenterbme/People-in-the-department/principalinvest/1064136/">
+    <escape-system:id>demo-1-annemieke</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-annemieke"/>
+    <foaf:name>Annemieke van Wamel</foaf:name>
+    <foaf:mbox rdf:resource="mailto:j.vanwamel@erasmusmc.bla"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#AcademicStaff"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.onderzoekinformatie.nl/en/oi/nod/onderzoeker/PRS1305053/">
+    <escape-system:id>demo-1-klazina</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-klazina"/>
+    <foaf:name>Klazina Kooiman</foaf:name>
+    <foaf:mbox rdf:resource="mailto:k.kooiman@erasmusmc.nl"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#AcademicStaff"/>
+    <foaf:phone rdf:resource="tel:+31-10-7040704"/>
+    <foaf:workplaceHomepage rdf:resource="http://www.erasmusmc.nl/"/>
+    <foaf:workInfoHomepage rdf:resource="http://www.onderzoekinformatie.nl/en/oi/nod/onderzoeker/PRS1305053/"/>
+    <foaf:knows rdf:resource="http://www.erasmusmc.nl/thoraxcenterbme/People-in-the-department/principalinvest/1064136/"/>
+    <foaf:img rdf:resource="http://www.brandaris128.nl/klazina.jpg"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.erasmusmc.nl/">
+    <escape-system:id>demo-1-eurmc</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-eurmc"/>
+    <foaf:name>Erasmus MC Rotterdam</foaf:name>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#University"/>
+    <foaf:member rdf:resource="http://www.erasmusmc.nl/ThoraxcenterBME/"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.erasmusmc.nl/ThoraxcenterBME/">
+    <escape-system:id>demo-1-eurmcbme</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-eurmcbme"/>
+    <foaf:name>Biomedical Engineering</foaf:name>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#ResearchGroup"/>
+    <foaf:member rdf:resource="http://www.erasmusmc.nl/thoraxcenterbme/People-in-the-department/principalinvest/1064136/"/>
+    <foaf:member rdf:resource="http://www.onderzoekinformatie.nl/en/oi/nod/onderzoeker/PRS1305053/"/>
+    <swrc:cooperateWith rdf:resource="http://www.cordin.com/"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.cordin.com/">
+    <escape-system:id>demo-1-cordin</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-cordin"/>
+    <foaf:name>Cordin</foaf:name>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.utwente.nl/">
+    <escape-system:id>demo-1-ut</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-ut"/>
+    <foaf:name>University of Twente</foaf:name>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#University"/>
+    <foaf:member rdf:resource="http://pof.tnw.utwente.nl/"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://pof.tnw.utwente.nl/">
+    <escape-system:id>demo-1-pof</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-pof"/>
+    <foaf:name>Physics of Fluids</foaf:name>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#ResearchGroup"/>
+    <foaf:homepage rdf:resource="http://pof.tnw.utwente.nl/"/>
+    <swrc:cooperateWith rdf:resource="http://www.cordin.com/"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.fom.nl/">
+    <escape-system:id>demo-1-fom</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-fom"/>
+    <foaf:name>Foundation for Fundamental Research on Matter (FOM)</foaf:name>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <foaf:homepage rdf:resource="http://www.fom.nl/live/english/home.pag"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.brandaris128.nl/">
+    <escape-system:id>demo-1-brandaris128</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-brandaris128"/>
+    <foaf:name>Ultra high-speed imaging at frame rates of 25 million frames per second</foaf:name>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-projects.owl#ResearchTopic"/>
+    <escape-projects:dealtWithin rdf:resource="http://www.erasmusmc.nl/directie_informatie/research-di/?lang=nl"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.erasmusmc.nl/directie_informatie/research-di/?lang=nl">
+    <escape-system:id>demo-1-mm</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-mm"/>
+    <foaf:name>Medical microbubbles</foaf:name>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <swrc:carriedOutBy rdf:resource="http://www.erasmusmc.nl/ThoraxcenterBME/"/>
+    <swrc:status>current</swrc:status>
+    <swrc:startDate>2000-01-01</swrc:startDate>
+    <foaf:fundedBy rdf:resource="http://www.fom.nl/"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://dx.doi.org/10.1016/j.jconrel.2006.02.007">
+    <escape-system:id>demo-1-pub1</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-pub1"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-pubtypes.owl#Article"/>
+    <dcterms:title>Vibrating microbubbles poking individual cells: Drug transfer into cells via sonoporation</dcterms:title>
+    <foaf:maker rdf:resource="http://www.erasmusmc.nl/thoraxcenterbme/People-in-the-department/principalinvest/1064136/"/>
+    <foaf:maker rdf:resource="http://www.onderzoekinformatie.nl/en/oi/nod/onderzoeker/PRS1305053/"/>
+    <dcterms:source>Journal of Controlled Release, Volume 112, Issue 2, 15 May 2006, Pages 149-155</dcterms:source>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://stilton.tnw.utwente.nl/people/michel/">
+    <escape-system:id>demo-1-michel</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-michel"/>
+    <foaf:name>Michel Versluis</foaf:name>
+    <foaf:mbox rdf:resource="mailto:versluis@utwente.nl"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#AcademicStaff"/>
+    <foaf:phone rdf:resource="tel:+31-53-4896824"/>
+    <foaf:workplaceHomepage rdf:resource="http://pof.tnw.utwente.nl/"/>
+    <foaf:workInfoHomepage rdf:resource="http://stilton.tnw.utwente.nl/people/michel/index.html"/>
+    <foaf:knows rdf:resource="http://stilton.tnw.utwente.nl/shrimp/research.html#BarbaraSchmitz"/>
+    <foaf:knows rdf:resource="http://www.phys.uu.nl/~heydt/home/Welcome.html"/>
+    <foaf:img rdf:resource="http://pof.tnw.utwente.nl/2_people/pics/michel2009.jpg"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://stilton.tnw.utwente.nl/shrimp/research.html#BarbaraSchmitz">
+    <escape-system:id>demo-1-barbara</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-barbara"/>
+    <foaf:name>Barbara Schmitz</foaf:name>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#AcademicStaff"/>
+    <foaf:workplaceHomepage rdf:resource="http://portal.mytum.de/welcome"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.phys.uu.nl/~heydt/home/Welcome.html">
+    <escape-system:id>demo-1-anna</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-anna"/>
+    <foaf:name>Anna von der Heydt</foaf:name>
+    <foaf:mbox rdf:resource="mailto:a.s.vonderheydt@uu.nl"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#AcademicStaff"/>
+    <foaf:phone rdf:resource="tel:+31-30-2535963"/>
+    <foaf:workplaceHomepage rdf:resource="http://www.phys.uu.nl/"/>
+    <foaf:workInfoHomepage rdf:resource="http://www.phys.uu.nl/~heydt/home/Welcome.html"/>
+    <foaf:knows rdf:resource="http://stilton.tnw.utwente.nl/shrimp/research.html#BarbaraSchmitz"/>
+    <foaf:img rdf:resource="http://pof.tnw.utwente.nl/2_people/pics/Anna_vonderheydt.jpg"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://pof.tnw.utwente.nl/2_people/personalpages/detlef/CV_Professor%20Dr%20Detlef%20Lohse_170409.htm">
+    <escape-system:id>demo-1-detlef</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-detlef"/>
+    <foaf:name>Detlef Lohse</foaf:name>
+    <foaf:mbox rdf:resource="mailto:lohse@utwente.nl"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-agents.owl#AcademicStaff"/>
+    <foaf:phone rdf:resource="tel:+31-53-4898076"/>
+    <foaf:workplaceHomepage rdf:resource="http://pof.tnw.utwente.nl/"/>
+    <foaf:workInfoHomepage rdf:resource="http://pof.tnw.utwente.nl/2_people/personalpages/detlef/CV_Professor%20Dr%20Detlef%20Lohse_170409.htm"/>
+    <foaf:knows rdf:resource="http://stilton.tnw.utwente.nl/people/michel/"/>
+    <foaf:knows rdf:resource="http://stilton.tnw.utwente.nl/shrimp/research.html#BarbaraSchmitz"/>
+    <foaf:knows rdf:resource="http://www.phys.uu.nl/~heydt/home/Welcome.html"/>
+    <foaf:img rdf:resource="http://pof.tnw.utwente.nl/2_people/pics/detlef2005.jpg"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://dx.doi.org/10.1126/science.289.5487.2114">
+    <escape-system:id>demo-1-pub2</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-pub2"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-pubtypes.owl#Article"/>
+    <dcterms:title>How Snapping Shrimp Snap: Through Cavitating Bubbles</dcterms:title>
+    <foaf:maker rdf:resource="http://stilton.tnw.utwente.nl/people/michel/"/>
+    <foaf:maker rdf:resource="http://pof.tnw.utwente.nl/2_people/personalpages/detlef/CV_Professor%20Dr%20Detlef%20Lohse_170409.htm"/>
+    <foaf:maker rdf:resource="http://stilton.tnw.utwente.nl/shrimp/research.html#BarbaraSchmitz"/>
+    <foaf:maker rdf:resource="http://www.phys.uu.nl/~heydt/home/Welcome.html"/>
+    <swan:relatedTo rdf:resource="http://pof.tnw.utwente.nl/3_research/files/gallery.mpg"/>
+    <dcterms:source>Science, Volume 289, Issue 5487, 22 September 2000, Pages 2114-2117</dcterms:source>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://pof.tnw.utwente.nl/3_research/files/gallery.mpg">
+    <escape-system:id>demo-1-videopof</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-videopof"/>
+    <rdf:type rdf:resource="http://purl.org/dc/dcmitype/MovingImage"/>
+    <dcterms:title>On sound of snapping shrimp</dcterms:title>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.youtube.com/watch?v=eKPrGxB1Kzc">
+    <escape-system:id>demo-1-bbc</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-bbc"/>
+    <rdf:type rdf:resource="http://purl.org/dc/dcmitype/MovingImage"/>
+    <dcterms:title>Pistol Shrimp - BBC animal show 'Weird Nature'</dcterms:title>
+    <swan:inResponseTo rdf:resource="http://dx.doi.org/10.1126/science.289.5487.2114"/>
+    <dcterms:abstract>Enter the weird and wonderful underwater world of the Pistol Shrimp in this interesting short video from BBC animal show 'Weird Nature'. Learn how the shrimp turns sound into a weapon to ward off predators and stun prey.</dcterms:abstract>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://escape.utwente.nl/resource/demo-1-relationannotation1">
+    <escape-system:id>demo-1-relationannotation1</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-relationannotation1"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-annotations.owl#RelationAnnotation"/>
+    <dcterms:description>Beautiful non-specialist video of the scientific study into cavitating bubbles.</dcterms:description>
+    <escape-annotations:subject rdf:resource="http://www.youtube.com/watch?v=eKPrGxB1Kzc"/>
+    <escape-annotations:predicate rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/inResponseTo"/>
+    <escape-annotations:object rdf:resource="http://dx.doi.org/10.1126/science.289.5487.2114"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://escape.utwente.nl/resource/demo-1-relationannotation2">
+    <escape-system:id>demo-1-relationannotation2</escape-system:id>
+    <escape-system:resourceUri rdf:resource="http://escape.utwente.nl/resource/demo-1-relationannotation2"/>
+    <rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-annotations.owl#RelationAnnotation"/>
+    <dcterms:description>Scientific video illustrating how snapping shrimps snap</dcterms:description>
+    <escape-annotations:subject rdf:resource="http://dx.doi.org/10.1126/science.289.5487.2114"/>
+    <escape-annotations:predicate rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/relatedTo"/>
+    <escape-annotations:object rdf:resource="http://pof.tnw.utwente.nl/3_research/files/gallery.mpg"/>
+  </rdf:Description>
+
+</rdf:RDF>

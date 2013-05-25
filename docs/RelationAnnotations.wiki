@@ -1,0 +1,28 @@
+#summary Description of the relation annotation format.
+
+= Introduction =
+
+This page describes the relation annotation format.
+
+In addition to describing resources and the relations between them, InContext can also show annotations on relations between resources using relation annotations.
+
+= Relation annotations =
+
+InContext uses the principles of RDF reification to annotate relations.
+
+Take the following statement:
+|| http://myuni.tld/eprint/abc || http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/cites || http://myuni.tld/eprint/xyz ||
+
+This statement can be reified using the following statements:
+|| http://myuni.tld/ann/123 || http://www.w3.org/1999/02/22-rdf-syntax-ns#subject || http://myuni.tld/eprint/abc ||
+|| http://myuni.tld/ann/123 || http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate || http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/cites ||
+|| http://myuni.tld/ann/123 || http://www.w3.org/1999/02/22-rdf-syntax-ns#object || http://myuni.tld/eprint/xyz ||
+|| http://myuni.tld/ann/123 || http://www.w3.org/1999/02/22-rdf-syntax-ns#type || http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement ||
+
+This creates a new resource identified by a URI. RDF allows anything with a URI to be described, so using this new URI we can describe the relation itself. For example:
+
+|| http://myuni.tld/ann/123 || http://purl.org/dc/terms/description || "Document ABC cites paragraph 2.3 of document XYZ" ||
+
+The property used for the description of the relation can be configured using the configuration option [ConfigurationOptions#descriptionAnnotationTypeId descriptionAnnotationTypeId].
+
+The RDF type and properties used for a relation annotation can be configured using configuration options [ConfigurationOptions#annotationTypeId annotationTypeId], [ConfigurationOptions#aubjectAnnotationTypeId aubjectAnnotationTypeId] and [ConfigurationOptions#objectAnnotationTypeId objectAnnotationTypeId].

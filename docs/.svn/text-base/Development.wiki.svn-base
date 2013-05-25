@@ -1,0 +1,99 @@
+#summary Modifying/improving InContext.
+
+= Introduction =
+
+This page provides information about modifying/improving InContext.
+
+= Prerequisites =
+
+Please follow the instructions on [IdeSetup IDE Setup] to setup a development environment.
+
+= Debug mode =
+
+Debug mode can be enabled through the [http://code.google.com/p/surf-incontext/wiki/ConfigurationOptions#debug debug] configuration option.
+
+If debug mode is enabled, debug messages are sent to the browser console. To view the console, install the [http://getfirebug.com/logging Firebug] extension for Firefox.
+
+= File structure =
+
+The release version of InContext in packaged as a single file "visualizer_compiled_min.js", minified to reduce the file size. The original source files can be found in the Source/Scripts folder.
+
+To test the visualiser using the source files, use "example_source.html" in the Source folder.
+
+To build a release version, right mouse click on the build.xml file in the root of your project. Here select Run As > Ant Build. This will create a Release directory in your project containing the release version of InContext.
+
+To update the release directory in Eclipse, right mouse click the project icon and select 'Refresh'.
+
+In addition to the "visualizer_compiled_min.js" file, the build script also builds the file "visualizer_compiled.js". This file has the same content as "visualizer_compiled_min.js" but it isn't minified. This file can be used as a replacement for "visualizer_compiled_min.js" to trace problems on your system without having to install all separate source files.
+
+If additional source files are added to the file structure, they need to be included in both the "example_source.html" and "build.xml" files. Additionally they need to be added to version control using the "add to version control" option.
+
+=== Visualizer.js ===
+Main application starting point. This script initializes all the services required to run the application. It's responsible for communication with the HTML page and exposes the API functions.
+
+== Dependencies Folder ==
+Holds external libraries required for the application.
+
+== Domain Folder ==
+Holds the domain objects.
+
+=== Node.js ===
+Domain object for a node in the visualizer. Holds data from the RDF data and schema combined.
+
+== Framework Folder ==
+
+=== Core.js ===
+Holds the default values for the configuration options. The core is responsible for the initialization of all the services.
+
+=== Sandbox.js ===
+Services can't communicate directly with the core, all communication is done through the sandbox. It exposes methods for event subscription and logging. It's also used to get configuration values and a reference to another service.
+
+== Modules Folder ==
+This folder contains the different services.
+
+=== Animationservice.js ===
+Responsible for animations. The beginTransition method will start the transition between the old and the new canvas.
+
+=== Cloudservice.js ===
+Responsible for creating a unified cloud array with all the relation objects sorted by weight. Weight of a cloud object is based on text length and number of objects in the cloud.
+
+=== Dataservice.js ===
+Uses the dataconnector and schemaservice. Combines the RDF data and Schema data into usable domain objects for the application.
+
+=== Historymanager.js ===
+Uses the jquery.address-x.x.x.min.js dependency to monitor the URL for changes. Provides functionality for the back/forward button in the browser and direct deep linking to an object.
+
+=== Htmldrawservice.js ===
+Uses the historymanager, dataservice and cloudservice.
+Responsible to output the correct HTML to visualize all of the objects.
+
+=== Navigationservice.js ===
+Listens to object-click and load-object events.
+Calls the dataservice to get the required data and calls the drawsService to draw this data.
+
+=== Schemaconnector.js ===
+Gets the RDF schema data using the configured schemaUrl.
+
+=== Schemaservice.js ===
+Parses the provided schema. Has functions to get property names and types for a specified uri.
+
+=== Syncdataconnector.js ===
+Gets the RDF data using the configured dataUrl.
+
+== Utils Folder ==
+This folder contains utility files.
+
+== Content ==
+Content files, such as CSS and images, needed to run the application.
+
+= Building a release ZIP file =
+
+Release ZIP files are built packaging the content of the Release folder into a ZIP file.
+
+Before building a ZIP file, first check the source code into the SVN repository trunk. Then create a tag:
+
+_svn copy https://surf-incontext.googlecode.com/svn/trunk/ https://surf-incontext.googlecode.com/svn/tags/release-x.x -m "Tagging the x.x release" --username username@example.com_
+
+Finally, build the ZIP file and upload it to the [http://code.google.com/p/surf-incontext/downloads/list Downloads] section.
+
+The Release folder and release ZIP file should NOT be checked into SVN.

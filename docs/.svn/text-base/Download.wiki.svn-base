@@ -1,0 +1,65 @@
+#summary How to download InContext.
+
+= Release download =
+
+Release versions of InContext can be found in the [http://code.google.com/p/surf-incontext/downloads/list download area].
+
+_Release versions might not contain the latest version of the InContext code, use the source version if you need to use to latest version._
+
+= Source download =
+
+To download the latest source code of InContext, you will need a subversion client. There are several options depending on your operating system and the planned usage:
+
+== Eclipse IDE + Subclipse ==
+
+Follow the instructions on [IdeSetup IDE Setup] to download the source code directly in the Eclipse IDE.
+
+== Tortoise SVN for Windows ==
+
+TortoiseSVN is an easy to use Subversion GUI.
+
+=== Installation ===
+
+  * Download TortoiseSVN from: [http://tortoisesvn.tigris.org/]
+  * Install TortoiseVN
+
+=== Download InContext ===
+
+  * Open the desired destination folder on your PC using the Windows file explorer.
+  * Click the right mouse button
+  * To download the source code: Choose *TortoiseSVN > Export*, to create a working copy: Choose *SVN Checkout*
+  * URL of repository:
+    * For read only access use: http://surf-incontext.googlecode.com/svn/
+    * For read/write access use: https://surf-incontext.googlecode.com/svn/ (only needed if you want to contribute changes back to the project, contact us for more information)
+  * Export directory: The desired destination folder
+  * Click Ok
+
+== Command line Subversion clients ==
+
+=== Installation ===
+
+Download and install Subversion:
+  * Windows: http://www.collab.net/downloads/subversion/
+  * Linux: use the software manager of your Linux distribution, look for "subversion" or "svn"
+  * Other platforms: http://subversion.apache.org/packages.html
+
+=== Download InContext ===
+
+Use this command to download the latest project source code:
+{{{
+svn export http://surf-incontext.googlecode.com/svn/trunk/ InContext
+}}}
+
+To check out a read-only working copy:
+{{{
+svn checkout http://surf-incontext.googlecode.com/svn/trunk/ InContext
+}}}
+
+If you plan to contribute changes back to the project (contact us for more information):
+{{{
+svn checkout https://surf-incontext.googlecode.com/svn/trunk/ InContext --username you@example.com
+}}}
+
+== About Subversion ==
+
+For more information about Subversion, see: [http://svnbook.red-bean.com/]

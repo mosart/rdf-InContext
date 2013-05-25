@@ -1,0 +1,149 @@
+#summary Installing/embedding InContext into your system.
+
+= Introduction =
+
+This page describes how to install/embed the InContext visualiser in your system.
+
+This page assumes that you will use the release version on InContext. For more information about the source version, see [Development].
+
+= Download =
+
+Follow the instructions on the [Download] page.
+
+= Example code =
+
+We'll start with the example code.
+
+To test the example code, open the "example_release.html" in the release folder. When using Internet Explorer on your local hard drive, a warning might appear, select "Allow Blocked Content" to continue.
+
+Click on the objects in the visualiser and observe how it changes the URL in the URL bar of the browser. Updating the URL manually will also cause the visualiser to adjust it's selection.
+
+Next, view the source code of "example_release.html". The source code contains comments to explain what every section does.
+
+Let's walk through these sections:
+
+_In case of minor differences between the example code on this page and the example file bundled in the release, the release file is leading._
+
+{{{
+	<link type="text/css" href="Content/visualizer.css" media="screen" rel="Stylesheet" /> 
+	<link type="text/css" href="Content/visualizer-skin.css" media="screen" rel="Stylesheet" /> 
+}}}
+These CSS files define the look and feel of InContext. "visualizer.css" defines the basic design. "visualizer-skin.css" allows you to override the design to match your system.
+
+For more information see [VisualiserSkin Visualiser Skin].
+
+The CSS files refer to images located in the folder Images inside the Content folder. You will need to adjust these references if you decide to change the directory structure.
+
+{{{
+	<!--[if IE 6]>
+		<script type="text/javascript" src="Content/iepngfix_tilebg.js"></script>
+		<link type="text/css" href="Content/visualizer-ie6.css" rel="Stylesheet" />	
+	<![endif]-->
+}}}
+These files provide support for Internet Explorer 6. It adds transparent PNG support using [http://www.twinhelix.com/css/iepngfix/ IE5.5+ PNG Alpha Fix].
+
+These files refer to "blank.gif" and "iepngfix.htc" in the same folder. You will need to adjust these references if you decide to change the directory structure.
+
+The HTC file included in this folder needs to be served using the MIME type "text/x-component". In Apache this can be configured using a .htaccess file containing:
+{{{
+AddType text/x-component .htc
+}}}
+Your server needs to be configured to allow .htaccess files. Please consult your system administrator for more information about configuring a MIME type in your web server.
+
+This section can be left out if you do not require Internet Explorer 6 support.
+
+{{{
+	<script type="text/javascript" src="Scripts/visualizer_compiled_min.js"></script>
+}}}
+This file contains the visualiser code.
+
+{{{
+	<script type="text/javascript">
+		var app = new VisualizerApp("visualizer_canvas", "http://pof.tnw.utwente.nl/",
+			{
+				debug: true,
+				dataUrl: "Example/example_data.rdf",
+				schemaUrl: "Example/example_schema.rdf",
+				...
+}}}
+This section initializes the visualiser.
+
+The first parameter is the ID of the HTML DIV element which will be used for displaying the visualiser.
+
+The second parameter contains the ID of the object which should be selected when the visualiser loads. If `null` is specified, the visualiser starts with the aggregation object.
+
+The third paramter contains an associative array containing the configuration options of the visualser. For more information see [ConfigurationOptions Configuration Options].
+
+{{{
+		app.subscribe("*.load-object", function (event) {
+			document.getElementById('showObjectHolder').innerHTML = event.data;
+		});
+		...
+}}}
+This section gives some examples of how to hook into events produced by the visualiser. This section can be left out if you do not wish to hook into any event.
+
+For more information see [VisualiserApi Visualiser API].
+
+{{{
+	<button onclick="app.loadObject('http://dx.doi.org/10.1126/science.289.5487.2114')">External Call Load Demo</button>
+}}}
+
+This line demonstrates events coming from outside of the visualiser. Clicking the button will select the object specified by the ID.
+
+For more information see [VisualiserApi Visualiser API].
+
+{{{
+	<div id="visualizer_canvas"></div>
+}}}
+
+This line defines the canvas of the visualiser.
+
+= Embedding the visualiser =
+
+== Prerequisites ==
+
+To use the visualiser, you will need the following information:
+  * Data in RDF format
+  * A schema in RDF format
+
+See [DataFormat Data Format] and [SchemaFormat Schema Format] for more information.
+
+== Preparing your system ==
+
+Before connecting the visualizer to the data of your system, it's advised to first implement the visualiser using the example data files. This will reduce the number of factors which can attribute to possible integration errors.
+
+Start by copying the required script, CSS and image files to your system. If you wish to change the folder structure, you will also have to update the references in the CSS files. To avoid problems, it is advised to keep the original folder structure.
+
+Next, integrate the visualiser in your system using "example_release.html" as an example.
+
+Test the visualiser using the example data to verify that all required script, CSS and image files are placed in the right position and are properly included.
+
+== Connecting the visualiser to your system data ==
+
+Now is the time to connect the visualiser to your data. The data needs to be exposed through a URL. Set the "dataUrl" property of the visualiser to this URL.
+
+If the visualiser does not show up, the data might not be in the correct format.
+
+= Interaction between the visualiser and your system =
+
+Any action from the end user, such as object clicks cause event in the visualiser. It is possible to hook your system into these events.
+
+It is also possible to connect the visualiser to events in your system.
+
+An example of such integration is [http://escape-dev.local/graph/demo-1-aggregation#id=demo-1-pof ESCAPE]. Clicks in the visualiser will cause the text below the visualiser to be updated. Clicks in the text below the visualiser will cause the visualiser to be updated.
+
+For more information see [VisualiserApi Visualiser API].
+
+= Internal and external IDs =
+
+By default the visualiser will use the subject URIs used in the RDF data (about="...") to identify objects in the URL and events. In many cases your system will use it's own identifier format, such as a simple numeric e-print ID. If this ID is exposed in the RDF data, it can be used by the visualiser to identify objects in the URL and events.
+
+For example, if your data contains:
+`<http://myuni.tld/myobject/123> <http://myuni.tld/myschema/eprintId> "123"`
+You can set the "idProperty" configuration option to "http://myuni.tld/myschema/eprintId". Clicking an object in the visualiser will now update the URL to "mysystem?id=123" instead of "mysystem?id=http%3A%2F%2Fmyuni.tld%2Fmyobject%2F123". Events will also provide the ID "123".
+
+Identifiers in the URL need to be URL encoded:
+  * "http://myuni.tld/myobject/123" -> "http%3A%2F%2Fmyuni.tld%2Fmyobject%2F123"
+  * "id with spaces" -> "id%20with%20spaces"
+  * "http://myuni.tld/myobject/a%20space" -> "http%3A%2F%2Fmyuni.tld%2Fmyobject%2Fa%2520space"
+_Please note the double URL encoding in the last example. This is correct, you are encoding a URI with a value encoded in it._

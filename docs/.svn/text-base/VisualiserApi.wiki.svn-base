@@ -1,0 +1,53 @@
+#summary Visualiser API description.
+
+= Introduction =
+
+This page describes the API of the visualiser.
+
+= Listening to application events =
+
+Using the subscribe method, you're able to listen to application events. The following example shows how to listen to the load-object event and specify an action.
+
+== Load-object ==
+The load-object event is fired whenever an object is loaded. This way, we can always get the current loaded object from the visualize. 
+
+{{{
+app.subscribe("*.load-object", function (event) {
+  //External object id: event.data
+  document.getElementById('showObjectHolder').innerHTML = event.data;
+});
+}}}
+"app" is a reference to the visualizer application. See the installation instructions.
+
+== Uri-click ==
+
+The uri-click event is fired when an external link is clicked as one of the object properties. You're able to trigger custom actions on a link click. See also the “linkTarget” configuration option.
+
+{{{
+app.subscribe("*.uri-click", function (event) {
+  //Link url: event.data
+  document.getElementById('uriClickDiv').innerHTML = event.data;
+});
+}}}
+
+== Object-uri-click ==
+
+The object-uri-click event is fired when the view link of a center object is clicked. The event data holds the Id and ExternalId of the clicked object.
+
+{{{
+app.subscribe("*.object-uri-click", function (event) {
+  //Object id: event.data.id
+  //External id: event.data.externalId
+  var values = "Id: " + event.data.id + " + ExternalId: " + event.data.externalId;
+});
+}}}
+
+= Manually loading an object =
+
+When you want to force the application to show an object, the loadObject method can be used.
+
+{{{
+app.loadObject('object-id');
+}}}
+
+The object-id is the object-id of the object to load. When a custom idProperty is specified in the configuration, that property will be used to find a matching value.

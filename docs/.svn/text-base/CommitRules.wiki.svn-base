@@ -1,0 +1,34 @@
+#Rules how to commit to the source code 
+
+= Introduction =
+
+Het zou handig zijn als iedereen die in de toekomst InContext code gaat committen doet op de volgende manier zoalsin onderstaand voorbeeld. Indien iemand anders ook commit rechten krijgt in de toekomst, dan graag deze informatie doorgeven.
+
+
+= Example; loggin actions for bug fix =
+ # Log issue in issue list 
+ # Log code commit for bug fix linked to issue 
+ # Log issue solved 
+
+Ik heb net twee kleine bugs gefixed in de visualizer, waarvan ik er 1 zelf ingevoerd had:
+ * http://code.google.com/p/surf-incontext/issues/detail?id=2&can=1
+ * http://code.google.com/p/surf-incontext/issues/detail?id=7&can=1
+
+Zoals je kunt zien zijn de issues op “fixed” gezet met als comment:
+Fixed in r43
+
+Zie: http://code.google.com/p/surf-incontext/issues/detail?id=7&can=1
+
+De r… verwijst naar de revisie in het versiebeheersysteem, Google Code maakt er dan automagisch een link van. 
+
+In de log message bij het opslaan van de wijzigingen in het versiebeheersysteem heb ik dit gezet:
+Fix for Issue 7: Visualizer does not support blank nodes
+Zie: http://code.google.com/p/surf-incontext/source/detail?r=43
+
+Google code linkt dan automagisch “Issue 7” naar de issue in de issue tracker.
+
+Op de revisie pagina kun je ook zien wat de wijzigingen zijn:
+http://code.google.com/p/surf-incontext/source/detail?r=43
+Klik hier onderaan op het plusje (+) voor “Modify    /trunk/Source/Scripts/modules/dataservice.js”.
+
+Zo kun je precies zien wat waar en wanneer gefixed is in de code.
