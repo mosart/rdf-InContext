@@ -13,7 +13,7 @@ Features:
   * Runs as a sandbox in memory: no conflicts with JQuery
   * The history manager is allowed to be switched off to enable the existing history manager of a website to take over
 
-More information about using InContext: [RDF-InContext Wiki](http://github.com//mosart/rdf-InContext/wiki/)
+More information about using InContext: [RDF-InContext Wiki](http://github.com/mosart/rdf-InContext/wiki/)
 
 Demo: [InContext Screencast](http://www.screencast.com/t/uMI07PsVCfm)
 
